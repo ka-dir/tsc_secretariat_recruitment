@@ -37,7 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'base.apps.BaseConfig',
+    'adverts.apps.AdvertsConfig',
+    'setups.apps.SetupsConfig',
 ]
 
 MIDDLEWARE = [
@@ -78,8 +81,12 @@ WSGI_APPLICATION = 'tsc_secretariat_recruitment.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'tsc_secretariat_recruitment',
+        'USER': 'kadir',
+        'PASSWORD': 'kadir',
+        'HOST':'localhost',
+        'PORT':'3306',
     }
 }
 

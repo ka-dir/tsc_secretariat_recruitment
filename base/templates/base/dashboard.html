@@ -1,1 +1,72 @@
-{% include 'original.html' %}
+{% extends 'main-layout.html' %}
+{% block content %}
+
+    <div class="row mb-2">
+        <div class="col-md-6">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                    <strong class="d-inline-block mb-2 text-primary">Application Instructions:</strong>
+                    <ol>
+                        <li class="card-text mb-auto"> Agree to comply with the instructions below to proceed with your
+                            application.
+                        </li>
+                        <li class="card-text mb-auto"> From the Vacancies Section select the position you wish to apply
+                            for and click the <strong>"Apply" </strong>button.
+                        </li>
+                        <li class="card-text mb-auto"> Upon completion of each section ensure you click the "Save"
+                            button to save your entries before moving to the <strong>"Next" </strong>section.
+                        </li>
+                        <li class="card-text mb-auto"> Upon completion of your application ensure you click the <strong>"Submit
+                            my Application" </strong>to complete your application for the selected vacancy.
+                        </li>
+                        <li class="card-text mb-auto"> You can monitor the status of your job application from <strong>"My
+                            Applications" </strong>section.
+                        </li>
+                        <li class="card-text mb-auto"> If your application is Incomplete makes sure you click <strong>"Submit
+                            my Application"</strong>.
+                        </li>
+                    </ol>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                    <strong class="d-inline-block mb-2 text-success">NOTES FOR APPLICANTS</strong>
+
+                    <ol>
+                        <li class="card-text mb-auto"> It is a serious offence to willfully give false information to
+                            the Teachers Service Commission.
+                        </li>
+                        <li class="card-text mb-auto"> All parts of this form must be completed by all applicants.</li>
+                        <li class="card-text mb-auto"> Do not apply for any post unless you possess all the
+                            qualifications given in the advertisement.
+                        </li>
+                        <li class="card-text mb-auto"> If you are invited for an interview by the Commission, bring your
+                            original certificates and testimonials but make sure that they are returned to you before
+                            you leave.
+                        </li>
+                        <li class="card-text mb-auto"> Canvassing in any form will lead to automatic disqualification.
+                        </li>
+                    </ol>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="p-4 p-md-5 mb-4 rounded text-bg-dark">
+        <div class="col-md-6 px-0">
+            <h1 class="display-4 fst-italic">REQUIREMENTS</h1>
+            <p class="lead my-3">NB: Refer to the requirements as stated under the job you wish to apply.</p>
+            <p class="lead mb-0"><a href="#" class="text-white fw-bold">More Info...</a></p>
+            <ul>
+                <li>Upon successful submission of Application you will get SMS Confirmation from TSC-Kenya.</li>
+                <li>In case of any challenge or queries, Email: secretariatrecruitment@tsc.go.ke ;Ensure you provide
+                    your TSC No, ID No, Mobile No, Official Names and nature of the problem.
+                </li>
+            </ul>
+        </div>
+    </div>
+{% endblock content %}
