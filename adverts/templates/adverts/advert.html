@@ -1,0 +1,66 @@
+{% extends 'main-layout.html' %}
+{% block content %}
+    <a href="{% url 'adverts' %}"><span class="badge text-bg-info rounded-pill"> Go Back </a>
+    <hr>
+    <div class="p-4 p-md-5 mb-4 rounded text-bg-dark">
+        <div class="col-md-6 px-0">
+            <h1 class="display-6 fst-italic">VACANCY : {{ advert.post_vacancy }}</h1>
+            <p class="lead my-3">
+                {% if advert.category_target_group == 0 %}
+                    VACANCY : <span class="badge text-bg-info rounded-pill"> EXTERNAL</span>
+                {% else %}
+                    VACANCY :  <span class="badge text-bg-info rounded-pill">INTERNAL</span>
+                {% endif %}
+
+            </p>
+            <p class="lead my-3">Advert No : <span
+                    class="badge text-bg-warning rounded-pill">{{ advert.advert_no }}</span></p>
+            <p class="lead my-3">No of Posts: : <span
+                    class="badge text-bg-success">{{ advert.no_of_post }}</span></p>
+
+        </div>
+    </div>
+
+    <div class="row mb-2">
+        <div class="col-md-6">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                    <strong class="d-inline-block mb-2 text-primary">Requirement</strong>
+
+                    <p class="card-text mb-auto">{{ advert.job_requirements }}</p>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                    <strong class="d-inline-block mb-2 text-success">Duties and Responsbilities</strong>
+
+                    <p class="mb-auto">{{ advert.duties_responsibilities }}</p>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="card mb-4 box-shadow">
+        <div class="card-header">
+            <h4 class="my-0 font-weight-normal">Remuneration Package:</h4>
+        </div>
+        <div class="card-body">
+            <h6 class="card-title pricing-card-title"> Basic Salary: {{ advert.currency }}<span>&#8594;</span>{{ advert.basic_salary }} <small
+                    class="text-muted">/ mo</small></h6>
+            <h6 class="card-title pricing-card-title"> House Allowance: {{ advert.currency }}<span>&#8594;</span> {{ advert.house_allowance }} <small
+                    class="text-muted">/ mo</small></h6>
+            <h6 class="card-title pricing-card-title"> Commuter Allowance: {{ advert.currency }}<span>&#8594;</span> {{ advert.commuter_allowance }} <small
+                    class="text-muted">/ mo</small></h6>
+            <h6 class="card-title pricing-card-title"> Leave Allowance: {{ advert.currency }}<span>&#8594;</span> {{ advert.leave_allowance }} </h6>
+            <h6 class="card-title pricing-card-title"> Medical Cover: {{ advert.currency }}<span>&#8594;</span> {{ advert.medical_scheme }} </h6>
+
+            <button type="button" class="btn btn-lg btn-block btn-primary">APPLY</button>
+        </div>
+    </div>
+
+{% endblock content %}
