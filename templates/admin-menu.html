@@ -2,12 +2,12 @@
                 <h1 class="h2">Dashboard</h1>
                 <div class="btn-toolbar mb-2 mb-md-0">
                     <div class="btn-group me-2">
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Manage Adverts</button>
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Manage Applications</button>
+                       <a href="{% url 'adverts' %}"><button type="button" class="btn btn-sm btn-outline-primary">Manage Adverts</button> </a>
                     </div>
-                    <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
-                        <span data-feather="calendar" class="align-text-bottom"></span>
-                        Manage users
-                    </button>
+                    <div class="btn-group me-2">
+
+                       <a href="{% url 'adverts' %}"><button type="button" class="btn btn-sm btn-outline-success">Manage Applications</button> </a>
+                    </div>
+                     <a href="{% url 'adverts' %}"><button type="button" class="btn btn-sm btn-outline-warning">Manage users</button> </a>
                 </div>
             </div>

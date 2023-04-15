@@ -1,0 +1,82 @@
+{% extends 'main-layout.html' %}
+{% block content %}
+
+    <table id="example" class="table table-striped table-bordered table-hover table-success" style="width:100%">
+        <thead>
+        <tr>
+            <th>Advert No</th>
+            <th>Position</th>
+            <th>Job Description</th>
+            <th>Category</th>
+            <th>Closing Date</th>
+            <th>Status</th>
+            <th>Target Group</th>
+            <th>Target Of Service</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for advert in adverts %}
+            <tr>
+                <td>{{ advert.advert_no }}</td>
+                <td>{{ advert.post_vacancy }}</td>
+                <td><a href="{% url 'advert' advert.id %}" class="badge rounded-pill badge-warning text-uppercase">Read
+                    More</a></td>
+                <td>
+                    {% if advert.category_target_group == 0 %}
+                        <span class="badge rounded-pill badge-primary text-uppercase">EXTERNAL</span>
+
+                    {% else %}
+                        <span class="badge rounded-pill badge-primary text-uppercase">INTERNAL</span>
+                    {% endif %}
+                </td>
+                <td>{{ advert.closing_date }}</td>
+                <td>
+                    {% if advert.is_closed == 0 %}
+
+                        <span class="badge rounded-pill badge-warning text-uppercase">OPEN</span>
+
+                    {% elif advert.is_closed == 1 %}
+                        <span class="badge rounded-pill badge-warning text-uppercase">CLOSED</span>
+                    {% else %}
+                        <span class="badge rounded-pill badge-warning text-uppercase">DRAFT</span>
+                    {% endif %}
+                </td>
+                <td>
+                    {% if advert.category_target_group == 0 %}
+                        <span class="badge rounded-pill badge-secondary text-uppercase">SECRETARIATS</span>
+
+                    {% else %}
+                        <span class="badge rounded-pill badge-secondary text-uppercase">TEACHERS</span>
+
+                    {% endif %}
+                </td>
+                <td>
+                    {% if advert.term_of_service == 0 %}
+                        <span class="badge rounded-pill badge-primary text-uppercase">PERMANENT</span>
+                    {% elif advert.term_of_service == 1 %}
+                        <span class="badge rounded-pill badge-primary text-uppercase">CONTRACT</span>
+
+                        </button>
+                    {% else %}
+                        <span class="badge rounded-pill badge-primary text-uppercase">INTERN</span>
+
+                    {% endif %}
+
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        <tfoot>
+        <tr>
+            <th>Advert No</th>
+            <th>Position</th>
+            <th>Job Description</th>
+            <th>Category</th>
+            <th>Closing Date</th>
+            <th>Status</th>
+            <th>Target Group</th>
+            <th>Target Of Service</th>
+        </tr>
+        </tfoot>
+    </table>
+{% endblock content %}

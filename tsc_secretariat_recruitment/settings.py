@@ -39,8 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'base.apps.BaseConfig',
-    'adverts.apps.AdvertsConfig',
     'setups.apps.SetupsConfig',
+    'hr_sys.apps.HrSysConfig',
 ]
 
 MIDDLEWARE = [

@@ -1,0 +1,15 @@
+{% if messages %}
+    {% for message in messages %}
+        <div id="alert" class="alert alert-{{ message.tags }}">
+            <strong>{{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+
+<script>
+    const alert = document.getElementById('alert');
+    setTimeout(() => {
+        $('#alert').alert('close')
+    }, 5000)
+
+</script>

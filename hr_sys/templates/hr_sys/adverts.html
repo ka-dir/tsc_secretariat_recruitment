@@ -1,0 +1,126 @@
+{% extends 'main-layout.html' %}
+{% block content %}
+
+    <table id="example" class="table table-striped table-bordered table-hover table-success" style="width:100%">
+
+        <p>
+            <a href="{% url 'create-advert' %}" class="btn btn-info btn-lg">
+                <span class="glyphicon glyphicon-plus"></span> Create Advert <i class="fa fa-plus"></i>
+            </a>
+
+            <thead>
+            <tr>
+                <th>Advert No</th>
+                <th>Position</th>
+                <th>Job Description</th>
+                <th>Category</th>
+                <th>Closing Date</th>
+                <th>Status</th>
+                <th>Target Group</th>
+                <th>Target Of Service</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for advert in adverts %}
+                <tr>
+                    <td>{{ advert.advert_no }}</td>
+                    <td>{{ advert.post_vacancy }}</td>
+                    <td><a href="{% url 'advert' advert.id %}" class="badge rounded-pill badge-warning text-uppercase">Read More</a></td>
+                    <td>
+                        {% if advert.category_target_group == 0 %}
+                            <span class="badge rounded-pill badge-primary text-uppercase">EXTERNAL</span>
+
+                        {% else %}
+                            <span class="badge rounded-pill badge-primary text-uppercase">INTERNAL</span>
+                        {% endif %}
+                    </td>
+                    <td>{{ advert.closing_date }}</td>
+                    <td>
+                        {% if advert.is_closed == 0 %}
+
+                            <span class="badge rounded-pill badge-warning text-uppercase">OPEN</span>
+
+                        {% elif advert.is_closed == 1 %}
+                            <span class="badge rounded-pill badge-warning text-uppercase">CLOSED</span>
+                        {% else %}
+                            <span class="badge rounded-pill badge-warning text-uppercase">DRAFT</span>
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if advert.category_target_group == 0 %}
+                            <span class="badge rounded-pill badge-secondary text-uppercase">SECRETARIATS</span>
+
+                        {% else %}
+                            <span class="badge rounded-pill badge-secondary text-uppercase">TEACHERS</span>
+
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if advert.term_of_service == 0 %}
+                            <span class="badge rounded-pill badge-primary text-uppercase">PERMANENT</span>
+                        {% elif advert.term_of_service == 1 %}
+                            <span class="badge rounded-pill badge-primary text-uppercase">CONTRACT</span>
+
+                            </button>
+                        {% else %}
+                            <span class="badge rounded-pill badge-primary text-uppercase">INTERN</span>
+
+                        {% endif %}
+                    </td>
+                    <td>
+                        <!-- edit -->
+                        <a href="{% url 'update-advert' advert.id %}" class="btn btn-warning btn-sm">
+                            <i class="fa fa-pencil-square-o"></i>
+                        </a>
+
+                        <!-- delete -->
+                        <a href="{% url 'delete-advert' advert.id %}"
+                           class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                           data-bs-target="#staticBackdrop{{ advert.id }}">
+                            <i class="fa fa-trash-o"></i>
+                        </a>
+                        <!-- Modal -->
+                <div class="modal fade" id="staticBackdrop{{ advert.id }}" data-bs-backdrop="static"
+                     data-bs-keyboard="false"
+                     tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="staticBackdropLabel">Delete</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Are you sure you want to delete {{ advert.post_vacancy }} ?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <form action="{% url 'delete-advert' advert.id %}" method="post">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-primary">Confirm</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+        <tr>
+            <th>Advert No</th>
+            <th>Position</th>
+            <th>Job Description</th>
+            <th>Category</th>
+            <th>Closing Date</th>
+            <th>Status</th>
+            <th>Target Group</th>
+            <th>Target Of Service</th>
+            <th>Action</th>
+        </tr>
+        </tfoot>
+    </table>
+{% endblock content %}
